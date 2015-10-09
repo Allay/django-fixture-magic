@@ -86,3 +86,6 @@ class Command(BaseCommand):
         serialize_fully()
         self.stdout.write(serialize('json', [o for o in serialize_me if o is not None],
                 indent=4, use_natural_keys=options.get('natural', False)))
+
+        # clear the list
+        del serialize_me[:]
